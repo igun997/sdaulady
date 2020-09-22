@@ -80,7 +80,7 @@ class SiswaControl extends Controller
                 $soal_list = $value->banksoal->soal;
 
                 if ($value->banksoal->jenis == "pg") {
-                    $si[] = ["id" => $value->id, "tipe" => $value->banksoal->jenis, "soal" => $soal_list, "pg_a" => $value->banksoal->pg_a, "pg_b" => $value->banksoal->pg_b, "pg_c" => $value->banksoal->pg_c, "pg_d" => $value->banksoal->pg_d, "pg_e" => $value->banksoal->pg_e];
+                    $si[] = ["id" => $value->id, "tipe" => $value->banksoal->jenis, "soal" => $soal_list, "pg_a" => $value->banksoal->pg_a, "pg_b" => $value->banksoal->pg_b, "pg_c" => $value->banksoal->pg_c];
                 } else {
 
                     $si[] = ["id" => $value->id, "tipe" => $value->banksoal->jenis, "soal" => $soal_list];

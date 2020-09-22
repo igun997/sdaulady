@@ -120,6 +120,7 @@ class GuruControl extends Controller
             $nilai = "<label class='badge badge-danger'>Perlu Dilakukan Ujian Susulan</label>";
           }
         }else {
+
           if ($value->essay != null) {
 
             $tpg = 0;
@@ -133,8 +134,13 @@ class GuruControl extends Controller
                 }
               }
             }
-            $nilai = "<span class='badge badge-primary m-1'>".number_format((((int)$value->essay) + (($tpg*10)/($totalPG/10)))/2)."</span> <span class='badge badge-danger m-1'>".number_format(($tpg*10)/($totalPG/10))."</span> <span class='badge badge-success m-1'>".number_format($value->essay)."</span>";
+              $nilaiPg = 0;
+              if ($tpg > 0 && $totalPG > 0){
+                  $nilaiPg = ((($tpg*10)/($totalPG/10)))/2;
+              }
+            $nilai = "<span class='badge badge-primary m-1'>".number_format(((int) $value->essay)+($nilaiPg))."</span> <span class='badge badge-danger m-1'>".number_format($nilaiPg)."</span> <span class='badge badge-success m-1'>".number_format($value->essay)."</span>";
             $btn = "<button class='btn btn-primary' disabled>Koreksi</button>";
+
           }else {
             $tpg = 0;
             $totalPG = 0;

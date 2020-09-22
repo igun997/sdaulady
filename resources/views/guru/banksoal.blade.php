@@ -83,14 +83,7 @@
               <label>Jawaban C </label>
               <textarea name="pg_c" rows="2" class="form-control" cols="20"></textarea>
             </div>
-            <div class="form-group">
-              <label>Jawaban D </label>
-              <textarea name="pg_d" rows="2" class="form-control" cols="20"></textarea>
-            </div>
-            <div class="form-group">
-              <label>Jawaban E </label>
-              <textarea name="pg_e" rows="2" class="form-control" cols="20"></textarea>
-            </div>
+
             <div class="form-group">
               <label>Kunci Jawaban </label>
               <input type="text" name="jawaban_pg" class="form-control" >
@@ -215,8 +208,6 @@
         dform[dform.length] = {name:"pg_a",value:CKEDITOR.instances['pg_a'].getData()};
         dform[dform.length] = {name:"pg_b",value:CKEDITOR.instances['pg_b'].getData()};
         dform[dform.length] = {name:"pg_c",value:CKEDITOR.instances['pg_c'].getData()};
-        dform[dform.length] = {name:"pg_d",value:CKEDITOR.instances['pg_d'].getData()};
-        dform[dform.length] = {name:"pg_e",value:CKEDITOR.instances['pg_e'].getData()};
       }
       console.log(dform);
       $.ajax({
@@ -264,7 +255,7 @@
         $("#pg").html("")
         console.log($pg);
         $("#pilihan").html(html);
-        jaw = ["a","b","c","d","e"];
+        jaw = ["a","b","c"];
         for (var i = 0; i < jaw.length; i++) {
           CKEDITOR.replace('pg_'+jaw[i], {
             extraPlugins: 'ckeditor_wiris',
@@ -322,8 +313,6 @@
                     '<p>A. '+rs.data.pg_a+'</p>',
                     '<p>B. '+rs.data.pg_b+'</p>',
                     '<p>C. '+rs.data.pg_c+'</p>',
-                    '<p>D. '+rs.data.pg_d+'</p>',
-                    '<p>E. '+rs.data.pg_e+'</p>',
                   ];
                   choice = choice.join("");
                 }else {
@@ -383,8 +372,6 @@
             CKEDITOR.instances['pg_a'].setData(rs.data.pg_a);
             CKEDITOR.instances['pg_b'].setData(rs.data.pg_b);
             CKEDITOR.instances['pg_c'].setData(rs.data.pg_c);
-            CKEDITOR.instances['pg_d'].setData(rs.data.pg_d);
-            CKEDITOR.instances['pg_e'].setData(rs.data.pg_e);
             obj.find("input[name=jawaban_pg]").val(rs.data.jawaban_pg);
           }else {
             CKEDITOR.instances['jawaban_es'].setData(rs.data.jawaban_es);
